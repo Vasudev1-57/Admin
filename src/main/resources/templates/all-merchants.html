@@ -1,0 +1,74 @@
+
+    <div class="container-fluid">
+
+        <h2>All Merchants </h2>
+        <hr/>
+        <a th:href="@{/merchant/addMerchant}" class="btn btn-primary mb-2 glowbutton"> Add Merchant </a>
+        <br>
+
+
+        <br>
+
+        <table id="tableID" class="table table-striped table-bordered table-sm"  >
+            <thead>
+
+            <tr>
+                <th>Id</th>
+                <th>Merchant</th>
+                <th>Email Id</th>
+                <th>Address</th>
+                <th>Age</th>
+                <th>Account No</th>
+                <th>Actions</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="merchant: ${merchants}">
+                <td th:text="${merchant.Id}"></td>
+                <td th:text="${merchant.MerchantName}"></td>
+                <td th:text="${merchant.EmailId}"></td>
+                <td th:text="${merchant.Address}"></td>
+                <td th:text="${merchant.Age}"></td>
+                <td th:text="${merchant.AccountNo}"></td>
+                <td>
+                    <a th:href="@{ShowUpdateMerchant(merchantId=${merchant.id})}" class="btn btn-warning"> Update </a>
+                    <a th:href="@{DeleteMerchant(merchantId=${merchant.id})}" class="btn btn-danger"> Delete </a>
+                    <a id="details-button"   class="btn btn-info"> Details </a>
+                    <!--                  <a th:onclick="'window.location.href = \'' + @{/merchant/MerchantDetails(merchantId=${merchant.id})} + '\''" > link </a>-->
+
+                </td>
+
+            </tr>
+            </tbody>
+            <script>
+
+$('#tableID').on('click', '#details-button', function() {
+  var val = $(this).closest('tr').find('td:eq(0)').text();
+  window.open("/merchant/MerchantDetails?merchantId="+ val, "Merchant Details", 'width=800,height=550');
+window.close();
+ return false;
+});
+</script>
+
+        </table>
+
+        <link rel="stylesheet" href=
+                "https://cdn.datatables.net/1.10.22/css/jquery.dataTables.min.css"/>
+
+        <script type="text/javascript"
+                src="https://code.jquery.com/jquery-3.5.1.js">
+        </script>
+
+        <script type="text/javascript" src=
+                "https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js">
+        </script>
+
+        <script>
+
+        $(document).ready(function() {
+            $('#tableID').DataTable({ });
+        });
+
+        </script>
+
+    </div>

@@ -1,0 +1,79 @@
+.blink-image {
+            -moz-animation: blink normal 2s infinite ease-in-out; /* Firefox */
+            -webkit-animation: blink normal 2s infinite ease-in-out; /* Webkit */
+            -ms-animation: blink normal 2s infinite ease-in-out; /* IE */
+            animation: blink normal 2s infinite ease-in-out; /* Opera and prob css3 final iteration */
+        }
+        @-moz-keyframes blink {
+            0% {
+                opacity:1;
+            }
+            50% {
+                opacity:0;
+            }
+            100% {
+                opacity:1;
+            }
+        }
+
+        @-webkit-keyframes blink {
+            0% {
+                opacity:1;
+            }
+            50% {
+                opacity:0;
+            }
+            100% {
+                opacity:1;
+            }
+        }
+        /* IE */
+        @-ms-keyframes blink {
+            0% {
+                opacity:1;
+            }
+            50% {
+                opacity:0;
+            }
+            100% {
+                opacity:1;
+            }
+        }
+        /* Opera and prob css3 final iteration */
+        @keyframes blink {
+            0% {
+                opacity:1;
+            }
+            50% {
+                opacity:0;
+            }
+            100% {
+                opacity:1;
+            }
+        }
+
+        .image-animation {
+
+          background-color: red;
+          position: relative;
+          animation-name: example;
+          animation-duration: 4s;
+          animation-iteration-count: infinite;
+        }
+
+        @keyframes example {
+          0%   {background-color:red; left:0px; top:0px;}
+          25%  {background-color:yellow; left:200px; top:0px;}
+          100% {background-color:red; left:0px; top:0px;}
+        }
+
+      .color-change{
+          animation: morph 3s infinite;
+        }
+        @keyframes morph {
+          0% { background-color: #0dcaf0; }
+          33% { background-color: #20c997; }
+          66% { background-color: #fd7e14; }
+          100% { background-color: #0dcaf0; }
+        }
+

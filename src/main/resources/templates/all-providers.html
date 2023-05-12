@@ -1,0 +1,31 @@
+
+
+    <div  class="container-fluid">
+        <h2>All Providers </h2>
+        <hr/>
+        <a th:href="@{/provider/addProvider}" class="btn btn-primary mb-2"> Add Provider </a>
+        <table class="table table-bordered table-striped">
+            <thead>
+
+            <tr>
+                <th>Id</th>
+                <th>Provider</th>
+                <th>Actions</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="provider: ${providers}">
+                <td th:text="${provider.Id}"></td>
+                <td th:text="${provider.providerName}"></td>
+                <td >
+                    <a th:href="@{ShowUpdateProvider(providerId=${provider.id})}"  class="btn btn-info"> Update </a>
+                    <a th:href="@{DeleteProvider(providerId=${provider.id})}"  class="btn btn-danger"> Delete </a>
+                </td>
+
+            </tr>
+            </tbody>
+        </table>
+
+
+
+    </div>

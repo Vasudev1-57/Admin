@@ -1,0 +1,65 @@
+<div id="page" class="bg-none page"
+     style="position: fixed;top: 20%;left: 30%;width:30%; "
+     xmlns="http://www.w3.org/1999/html">
+<div class="card mb-3" style="border-radius: .5rem;">
+    <div class="row g-0">
+        <div class="col-md-3 gradient-custom text-center text-white"
+             style="border-top-left-radius: .5rem; border-bottom-left-radius: .5rem;">
+            <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava1-bg.webp"
+                 alt="Avatar" class="img-fluid my-5" style="width: 80%;" />
+
+            <a th:href="@{/merchant/ShowMerchants}"  class="btn btn-danger btn-lg ms-2 " role="button" style="margin-top:80%"  > Close </a>
+
+        </div>
+
+<div class="col-md-9">
+    <form th:action="@{/merchant/ShowMerchants}" th:object="${merchants}" method="POST">
+
+    <div class="card-body p-4">
+        <h6>Personal Information</h6>
+        <hr class="mt-0 mb-4">
+        <div class="row pt-1">
+            <div class="col-6 mb-3">
+                <h6>Name</h6>
+                <p th:text="*{merchantName}"></p>
+
+            </div>
+            <div class="col-6 mb-3">
+                <h6>Email</h6>
+                <p th:text="*{emailId}"></p>
+            </div>
+        </div>
+        <div class="row pt-1">
+            <div class="col-6 mb-3">
+                <h6>Address</h6>
+                <p th:text="*{address}"></p>
+
+            </div>
+            <div class="col-6 mb-3">
+                <h6>Age</h6>
+                <p th:text="*{age}"></p>
+            </div>
+        </div>
+        <h6>Account Details</h6>
+        <hr class="mt-0 mb-4">
+        <div class="row pt-1">
+            <div class="col-6 mb-3">
+                <h6>Account Number</h6>
+                <p th:text="*{accountNo}"></p>
+            </div>
+            <div class="col-6 mb-3">
+                <h6>Providers</h6>
+                <ul th:field="*{providers}">
+                    <li th:each="provider: ${providers}"  th:text="${provider.providerName}"> </li>
+                </ul>
+
+
+            </div>
+        </div>
+
+    </div>
+    </form>
+</div>
+    </div>
+</div>
+</div>

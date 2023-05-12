@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Admin Portal</title>
+    <link th:href="@{/css/style.css}" rel="stylesheet">
+    <link th:href="@{/images/css/button-blink.css}" rel="stylesheet">
+    <link th:href="@{/images/css/image-blink.css}" rel="stylesheet">
+    <script type="text/javascript" th:src="@{/js/index.js}"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+</head>
+<body>
+<div class="container-fluid mt-3">
+    <div class="row">
+        <div class="col-sm-12 ">
+            <nav class="navbar navbar-expand-sm navbar-light bg-light">
+                <div>
+                    <button id="menu-button" type="button" class="btn btn-primary"  onclick="myFunction()"> <span class="fa fa-bars"></span>   Menu</button>
+                </div>
+                <div style="width:150px" ></div>
+                <div style="width:300px" >
+                    <h1 style="color:mediumorchid;font-size:300%;text-shadow: 2px 2px 5px maroon;">Admin Portal  </h1>
+                </div>
+                <img  class="blink-image"  th:src="@{/images/banklogomin_federal.png}" style="width:250px;height:70px;margin-left:50px;"  title="bank"   >
+                <div>
+                    <img  class="blink-image image-animation"  th:src="@{/images/bankofferanimation.jpg}" style="width:250px;height:70px;margin-left:50px;"  title="animation"   >
+                </div>
+
+                <!--    <img    th:src="@{/images/merchantimage.jpg}" style="margin-left:60%;" width="100" height="50" title="Admin"  class="rounded-circle" >-->
+                <!--    <img    th:src="@{/images/switch.png}"  title="Logout"   >-->
+                <div>
+
+                </div>
+                <div style="margin-left:500px">
+                    <button   type="button" class="btn btn-secondary color-change" > <span class="fa fa-sign-out"></span>   Log Out </button>
+                </div>
+                <br>
+
+            </nav>
+        </div>
+        <div style="width:25%" >
+        </div>
+    </div>
+</div>
+<div class="container-fluid mt-3">
+    <div class="row">
+        <div class="col-sm-3 ">
+            <div  id="demo1" class="col-sm-3  row nav div-visible"  style="width:235px;height:100%;visible=true;background-color:#011d46;">
+
+
+                <div id="demo" class="collapse " style="width:235px;height:100%;visible=true;background-color:#011d46;">
+                    <nav class="navbar navbar-light vertical-nav">
+                        <div class="container-fluid">
+                            <ul class="navbar-nav" style="color:white">
+                                <li class="nav-item" >
+                                    <a  th:href="@{/thymeleaf/home}" class="nav-link" style="color:white" >  <span class="fa fa-home">   </span> Home </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a  th:href="@{/provider/ShowProviders}" class="nav-link" style="color:white">  <span class="fa fa-google-wallet"></span> Provider </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a  th:href="@{/merchant/ShowMerchants}" class="nav-link" style="color:white">  <span class="fa fa-user"></span> Merchant </a>
+                                </li>
+                                <!-- <li class="nav-item">
+                                    <a class="nav-link" href="#"><span class="fa fa-exchange"></span>Transactions</a>
+                                  </li>
+                                  <li class="nav-item">
+                                    <a class="nav-link" href="#">Refund</a>
+                                  </li>
+                                  <li class="nav-item">
+                                    <a class="nav-link" href="#">Charge Back</a>
+                                  </li>
+                                  <li class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Seller</a>
+                                    <ul class="dropdown-menu">
+                                      <li><a class="dropdown-item" href="#">Reseller</a></li>
+                                      <li><a class="dropdown-item" href="#">Sub Reseller</a></li>
+                                    </ul>
+                                  </li>-->
+                            </ul>
+                        </div>
+                    </nav>
+                </div>  </div>
+        </div>
+        <div class="col-sm-9 ">
+
+
+
+            <!--<div layout:fragment="content">-->
+            <div id="page" class="col-sm-12 bg-none page "  style="position: fixed;top: 100;width:auto;left: 0px;"  >
+
+                <div th:replace="${content}" style="max-height:400px;overflow:scroll;width:100%"></div>
+
+
+            </div>
+        </div>
+
+    </div>
+</div>
+</body>
+
+<script>
+function myFunction() {
+  var x = document.getElementById("demo");
+   var element = document.getElementById("page");
+   var div1 = document.getElementById("demo1");
+
+  if ( div1.style.visibility === "visible") {
+    x.style.display = "none";
+    div1.style.visibility='hidden';
+    element.style.width = "100%";
+      element.style.left = "0px";
+  } else {
+    x.style.display = "block";
+     element.style.left = "220px";
+       div1.style.visibility='visible';
+        element.style.width = "auto";
+  }
+
+}
+</script>
+<script>
+$(document).ready(function(){
+ var x = document.getElementById("demo");
+   var element = document.getElementById("page");
+   var div1 = document.getElementById("demo1");
+   x.style.display = "block";
+     element.style.left = "220px";
+       div1.style.visibility='visible';
+        element.style.width = "auto";
+});
+</script>
+<style>
+
+    .nav {
+  position: fixed;
+  z-index: 1;
+  top: 100;
+  left: 0;
+  width: 235px;
+  height:auto;
+  backface-visibility: hidden;
+  }
+   .page {
+  position: fixed;
+  z-index: 1;
+  top: 100;
+  left: 235px;
+  width:auto;
+  }
+
+  .div-visible {
+    visibility: hidden;
+  }
+</style>
+
+
+</html>
